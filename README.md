@@ -13,3 +13,13 @@ A follower in kafka is a replica of a partition. It copies all the data from the
 It is not always that the same broker is a leader, and all other kafka brokers are always followers. If the same kafka broker is always a leader, this will mean that all read and write operations are always done through the same server and this would create a bottleneck.
 
 Each partition will have a leader assigned to it, and a leader to a partition is assigned when the topic is created. Kafka through its internal processes assigns a leader for each partition right away, so each partition will have its own leader and followers.
+
+
+Command to generate UUID for kakfa broker
+```./bin/kafka-storage.sh random-uuid```
+
+Preparing storage directories for running kafka in Kraft mode via below command
+```./bin/kafka-storage.sh format -t UUID-String-from-above-command -c path-to-server.properties-in-kraft-folder```
+
+Running kafka server 
+```./kafka-server-start.sh ../config/kraft/server.properties```
